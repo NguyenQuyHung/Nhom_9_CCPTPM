@@ -1,0 +1,183 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Thiết lập font chữ và màu sắc chung */
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f5f2;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header trang web */
+header {
+    background: linear-gradient(135deg, #6a3093 0%, #a044ff 100%);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 32px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #ff9a8b, #ff6a88, #ff99ac);
+}
+
+/* Container chính */
+.container {
+    width: 70%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Tiêu đề của từng truyện */
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4a4a4a;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: #a044ff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Phần nội dung truyện */
+.content {
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #555;
+    font-family: 'Noto Serif', Georgia, serif;
+    padding: 10px 15px;
+    background-color: #fafafa;
+    border-left: 4px solid #a044ff;
+    margin: 10px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Phần khung của mỗi truyện */
+.story {
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 2px dashed #e0e0e0;
+    transition: transform 0.3s ease;
+}
+
+.story:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.story:hover {
+    transform: translateY(-5px);
+}
+
+/* Hiệu ứng hover */
+.story:hover .title {
+    color: #6a3093;
+}
+
+.story:hover .content {
+    border-left-color: #ff6a88;
+    background-color: #f7f7f7;
+}
+
+/* Thiết kế responsive */
+@media (max-width: 992px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    header {
+        font-size: 28px;
+        padding: 20px 0;
+    }
+    
+    .title {
+        font-size: 26px;
+    }
+    
+    .content {
+        font-size: 16px;
+    }
+}
+
+/* Hiệu ứng chuyển động nhẹ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.story {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.story:nth-child(1) { animation-delay: 0.1s; }
+.story:nth-child(2) { animation-delay: 0.3s; }
+.story:nth-child(3) { animation-delay: 0.5s; }
+.story:nth-child(4) { animation-delay: 0.7s; }
+
+/* Nút cuộn lên đầu trang */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #a044ff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+}
+
+.scroll-top:hover {
+    background-color: #6a3093;
+}
